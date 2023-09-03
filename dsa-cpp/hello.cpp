@@ -1,5 +1,8 @@
 #include <iostream>
+
 int main(){
-    std::cout << "Hello world";
+    int Num;
+    Num = 10;
+    std::cout << "Number is :"+ Num;
     return 0;
 }
