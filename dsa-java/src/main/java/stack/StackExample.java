@@ -101,9 +101,7 @@ class Stack{
             current = current.next;
         }
     }
-    public boolean isFull(){
-        return false;
-    }
+
     public boolean isEmpty(){
         return top == null;
     }
@@ -121,6 +119,5 @@ public class StackExample{
         stack.pop();
         stack.print();
         System.out.println(stack.isEmpty());
-        System.out.println(stack.isFull());
     }
 }
