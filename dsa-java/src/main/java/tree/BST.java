@@ -51,6 +51,36 @@ public class BST {
         System.out.println(current.data + " ");
         printInOrderRecursively(current.right);
     }
+    public void delete(int data){
+        root = deleteRecursively(root,data);
+    }
+    private Node1 deleteRecursively(Node1 current, int data){//<-so here we go into right subtree and find leftmost min value
+        if(current == null){
+            return null;
+        }
+        if(data < current.data){
+            current.left = deleteRecursively(current.left,data);
+        }else if(data > current.data){
+            current.right = deleteRecursively(current.right,data);
+        }else{
+            if(current.left == null){
+                return current.right;
+            }else if(current.right == null){
+                return current.left;
+            }
+            current.data = minValue(current.right);
+            current.right = deleteRecursively(current.right,current.data);
+        }
+        return current;
+    }
+    private int minValue(Node1 current){
+        int minVal  = current.data;
+        while(current.left != null){
+            minVal = current.left.data;
+            current = current.left;
+        }
+        return minVal;
+    }
 
     public static void main(String[] args){
         BST tree = new BST();
