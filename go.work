@@ -1,0 +1,11 @@
+go 1.21.0
+
+use (
+	./dsa-go/dll
+	./dsa-go/ds1
+	./dsa-go/interface
+	./dsa-go/linked
+	./dsa-go/methods
+	./dsa-go/pointer
+	./dsa-go/queue
+)

@@ -58,6 +58,17 @@ func main() {
 	var w map[string]string
 	fmt.Println(v == nil) //not empty
 	fmt.Println(w == nil) //it is true it is empty
+
+	e := map[string]int{"one": 1, "two": 2, "three": 3}
+	for k, v := range e {
+		fmt.Println(k, " -> ", v)
+	}
+	// define an order using a new array and then append it as
+	var f []string
+	f = append(f, "one", "two", "three") //<- append it this way
+	for _, element := range f {          //then iterate over it
+		fmt.Printf("%v -> %v\n", element, e[element]) //but call the e's element
+	}
 }
 
 //code-snippet
