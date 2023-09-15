@@ -3,8 +3,8 @@ package stack;
 // this is array implementation
 /*
 class Stack {
-    private int size;
-    private  int[] stackArray;
+    private final int size;
+    private final int[] stackArray;
     private int top;
     public Stack(int size){
         this.size = size;
@@ -21,7 +21,7 @@ class Stack {
         if(isEmpty()){
             throw new IllegalStateException("Stack is empty");
         }
-        return stackArray[top--];//post decrement
+        return stackArray[top--];
     }
     public int peek(){
         if(isEmpty()){
@@ -50,15 +50,15 @@ public class StackExample{
         stack.push(3);
         stack.push(4);
         stack.push(5);
-        stack.print();
+        //stack.print();
         System.out.println(stack.peek());
         stack.pop();
         stack.print();
-        System.out.println(stack.isEmpty());
-        System.out.println(stack.isFull());
+       // System.out.println(stack.isEmpty());
+        //  System.out.println(stack.isFull());
     }
-}*/
-
+}
+*/
 class Node{
     int data;
     Node next;

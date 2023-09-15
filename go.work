@@ -3,6 +3,7 @@ go 1.21.0
 use (
 	./dsa-go/dll
 	./dsa-go/ds1
+	./dsa-go/generics
 	./dsa-go/interface
 	./dsa-go/linked
 	./dsa-go/methods
