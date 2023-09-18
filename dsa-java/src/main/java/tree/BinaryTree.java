@@ -1,4 +1,12 @@
 package tree;
+/*
+* For operations like insert, delete and search
+* the return type of the function is must be the data type the
+* particular data structure has like here Node is the data type of
+* the tree so Node will be the return type
+* */
+
+
 class Node{
     int data;
     Node left;

@@ -24,12 +24,11 @@ public class Hash2 {
             }
         }
     }
-    public Integer get(int key,int index){
+    public void get(int key, int index){
         List<Integer> values = map.get(key);
         if(values !=null && index >= 0 && index < values.size()){
             System.out.println(values.get(index));
         }
-        return null;
     }
     public void print(){
         for(Map.Entry<Integer, List<Integer>> entry:map.entrySet()){

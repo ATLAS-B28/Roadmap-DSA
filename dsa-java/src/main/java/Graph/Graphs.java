@@ -1,79 +1,43 @@
 package Graph;
+
 import java.util.*;
-//all graphs
-/*public class Graphs {
-   private final Map<Integer,List<Integer>> ADL;
-   public Graphs(){
-       ADL = new HashMap<>();
-   }
-   public void addEdge(int src,int dest){
-       ADL.computeIfAbsent(src,k->new ArrayList<>()).add(dest);
-       ADL.computeIfAbsent(dest,k->new ArrayList<>()).add(src);
-   }
-   public void getAdjVertices(int vertex){
-       System.out.println(vertex+"->");
-       System.out.println(ADL.getOrDefault(vertex, new ArrayList<>()));
-   }
-   public void print(){
-       for(Map.Entry<Integer,List<Integer>> entry:ADL.entrySet()){
-           int key = entry.getKey();
-           List<Integer> values = entry.getValue();
-           System.out.println(key+"->"+values);
-           for(int value: values){
-               System.out.println(value+" ");
-           }
-           System.out.println();
-       }
-   }
-   public static void main(String[] args){
-       Graphs graph = new Graphs();
-       graph.addEdge(0,1);
-       graph.addEdge(0,2);
-       graph.addEdge(1,2);
-       graph.addEdge(2,0);
-       graph.addEdge(2,3);
-       graph.addEdge(3,3);
-       graph.print();
-       graph.getAdjVertices(2);
-   }
-}*/
+
 public class Graphs{
-    //directed graphs
-    private final int V;
+    //undirected graph
+    int noOfNode;
     private final Map<Integer,List<Integer>> ADL;
-    public Graphs(int vertices){
-        V = vertices;
-        ADL = new HashMap<>();
-        for(int i=0; i<V; i++){
-            ADL.put(i,new ArrayList<>());
-        }
+    public Graphs(){
+        ADL = new LinkedHashMap<>();
+        noOfNode=0;
     }
-    public void addEdge(int src,int dest){
-        ADL.get(src).add(dest);
+    public void addVertexAndEdge(int source,int destination){
+        ADL.computeIfAbsent(source,k->new ArrayList<>());
+        //takes the key if no mapping for it exists
+        //it computes it by taking the mapping function
+        ADL.computeIfAbsent(destination,k->new ArrayList<>());
+        ADL.get(source).add(destination);
+        ADL.get(destination).add(source);
+        noOfNode+=2;
     }
-    public void getAdjVertices(int vertex){
-        System.out.println(ADL.getOrDefault(vertex,new ArrayList<>()));
-    }
-    public void print(){
-        for(Map.Entry<Integer,List<Integer>> entry:ADL.entrySet()){
-            int key = entry.getKey();
-            List<Integer> values = entry.getValue();
-            System.out.println(key+"->"+values);
-            for(int value: values){
-                System.out.println(value+" ");
-            }
-            System.out.println();
+    public void showConnections(){
+        Object[] keys = ADL.keySet().toArray();
+        /*
+        * Returns a Set view of the keys contained in this map.
+        * The set is backed by the map, so changes to the map are
+        * reflected in the set, and vice-versa.
+         * */
+        for(Object key : keys){
+            System.out.println(key + "--->" + ADL.get(Integer.parseInt(key.toString())));
         }
     }
     public static void main(String[] args){
-        Graphs graph = new Graphs(4);
-        graph.addEdge(0,1);
-        graph.addEdge(0,2);
-        graph.addEdge(1,2);
-        graph.addEdge(2,0);
-        graph.addEdge(2,3);
-        graph.addEdge(3,3);
-        graph.print();
-        graph.getAdjVertices(3);
+        Graphs g = new Graphs();
+       g.addVertexAndEdge(1,2);
+       g.addVertexAndEdge(1,3);
+       g.addVertexAndEdge(1,4);
+       g.addVertexAndEdge(2,5);
+       g.addVertexAndEdge(2,6);
+       g.addVertexAndEdge(2,1);
+        g.showConnections();
     }
 }
