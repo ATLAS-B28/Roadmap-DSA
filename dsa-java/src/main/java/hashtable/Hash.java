@@ -11,17 +11,14 @@ public class Hash {
     }
     public int HF(Object key){
         return Math.abs(key.hashCode()) % size;
-    }
+    } 
     public void put(int key,int value){
         int index = HF(key);
-        if(table[index] == null){
-            table[index] = new ArrayList<>();
-        }
+        table[index] = table[index] != null ? table[index] : new ArrayList<>();
         table[index].add(new KV2(key,value));
     }
     public void get(int key) {
         int index = HF(key);
-        List<Integer> values = new ArrayList<>();
         if (table[index] != null) {
             for (KV2 pair : table[index]) {
                 if (pair.getKey().equals(key)) {
@@ -34,13 +31,7 @@ public class Hash {
         int index = HF(key);
         if(table[index]!=null){
             List<KV2> pairs = table[index];
-            for(int i = 0; i< pairs.size(); i++){
-                KV2 pair = pairs.get(i);
-                if(pair.getKey().equals(key)){
-                    pairs.remove(i);
-                    break;
-                }
-            }
+            pairs.removeIf(pair -> pair.getKey().equals(key));
         }
     }
     public void print(){
@@ -48,7 +39,7 @@ public class Hash {
             if(table[i]!=null){
                 for(KV2 pair: table[i]){
                     System.out.println(pair.getKey()+"->"+pair.getValue());
-                }
+		}
             }
         }
         System.out.println();
@@ -63,6 +54,7 @@ public class Hash {
         hash.put(3,6);
         hash.put(6,3);
         hash.put(6,7);
+        hash.put(6,4);
         hash.print();
         hash.delete(2);
         hash.print();

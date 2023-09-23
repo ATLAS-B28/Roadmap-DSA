@@ -31,4 +31,5 @@ func main() {
 	fmt.Println("Is the queue empty? ", queue.isEmpty())
 	item := queue.Dequeue()
 	fmt.Println("Dequeued item: ", item)
+	fmt.Println(queue)
 }

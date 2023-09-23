@@ -1,8 +1,5 @@
 package hashtable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Hash2 {
     private final Map<Integer, List<Integer>> map;
@@ -10,12 +7,9 @@ public class Hash2 {
         map = new HashMap<>();
     }
     public void put(int key,int value){
-        if(!map.containsKey(key)){
-            map.put(key, new ArrayList<>());
-        }
-        map.get(key).add(value);
+        map.computeIfAbsent(key,k -> new ArrayList<>()).add(value);
     }
-    public void delete(int key, int value){
+    public void delete(int key,int value){
         if(map.containsKey(key)){
             List<Integer> values = map.get(key);
             values.remove(Integer.valueOf(value));
@@ -25,8 +19,8 @@ public class Hash2 {
         }
     }
     public void get(int key, int index){
-        List<Integer> values = map.get(key);
-        if(values !=null && index >= 0 && index < values.size()){
+        List<Integer> values = map.getOrDefault(key, Collections.emptyList());
+        if(index >= 0 && index < values.size()){
             System.out.println(values.get(index));
         }
     }
@@ -45,6 +39,7 @@ public class Hash2 {
         Hash2 hash = new Hash2();
         hash.put(1,1);
         hash.put(2,2);
+        hash.put(3,4);
         hash.put(3,3);
         hash.put(4,4);
         hash.put(5,5);
