@@ -11,10 +11,10 @@ which is the order in which elements were inserted
 into the set (insertion-order).
 * */
 public class LFU {
-    private Map<Integer,Integer> keyToValue;
-    private Map<Integer,Integer> keyToFrequency;
-    private Map<Integer,LinkedHashSet<Integer>> frequencyToKeys;
-    private int capacity;
+    private final Map<Integer,Integer> keyToValue;
+    private final Map<Integer,Integer> keyToFrequency;
+    private final Map<Integer,LinkedHashSet<Integer>> frequencyToKeys;
+    private final int capacity;
     private int minFrequency;
     public LFU(int capacity){
         this.keyToValue = new HashMap<>();
@@ -74,8 +74,10 @@ public class LFU {
         System.out.println(lfu.get(2));
         System.out.println(lfu.get(3));
         lfu.put(4,4);
+        lfu.put(5,6);
         System.out.println(lfu.get(1));
-        System.out.println(lfu.get(3));
         System.out.println(lfu.get(4));
+        System.out.println(lfu.get(3));
+        System.out.println(lfu.get(5));
     }
 }
