@@ -48,6 +48,38 @@ class GraphDFS{
             }
         }
     }
+    public List<Integer> findPath(int startVertex,int target){
+        Set<Integer> visited = new HashSet<>();
+        Map<Integer,Integer> parentMap = new HashMap<>();
+        dfsFind(startVertex,target,visited,parentMap);
+        if(!parentMap.containsKey(target)){
+            return  Collections.emptyList();
+        }
+        return buildPath(parentMap,startVertex,target);
+    }
+    private void dfsFind(int currentVertex,int target,Set<Integer> visited,Map<Integer,Integer> parentMap){
+        visited.add(currentVertex);
+        if(currentVertex == target){
+            return;
+        }
+        List<Integer> neighbors = ADL.get(currentVertex);
+        for(int neighbor : neighbors){
+            if(!visited.contains(neighbor)){
+                parentMap.put(neighbor,currentVertex);
+                dfsFind(neighbor,target,visited,parentMap);
+            }
+        }
+    }
+    private List<Integer> buildPath(Map<Integer,Integer> parentMap,int startVertex,int target){
+        List<Integer> path = new ArrayList<>();
+        int curr = target;
+        while(curr != startVertex){
+            path.add(0,curr);
+            curr = parentMap.get(curr);
+        }
+        path.add(0,startVertex);
+        return path;
+    }
 }
 public class DFSinGraph {
     public static void main(String[] args){

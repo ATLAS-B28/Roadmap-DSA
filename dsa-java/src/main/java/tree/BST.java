@@ -100,12 +100,10 @@ public class BST {
         return current;
     }
     private int minValue(Node1 current){
-        int minVal  = current.data;
         while(current.left != null){
-            minVal = current.left.data;
             current = current.left;
         }
-        return minVal;
+        return current.data;
     }
 
     public static void main(String[] args){

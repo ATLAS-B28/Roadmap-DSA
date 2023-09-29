@@ -28,6 +28,38 @@ public class BFSinGraph {
             }
         }
     }
+    public List<Integer> findPath(int startVertex,int target){
+        Set<Integer> visited = new HashSet<>();
+        Map<Integer,Integer> parentMap = new HashMap<>();
+        Queue<Integer> queue = new LinkedList<>();
+        visited.add(startVertex);
+        queue.add(startVertex);
+        while(!queue.isEmpty()){
+            int curr = queue.poll();
+            if(curr == target){
+                return buildPath(parentMap,startVertex,target);
+            }
+            List<Integer> neighbors = ADL.get(curr);
+            for(int neighbor : neighbors){
+                if(!visited.contains(neighbor)){
+                    visited.add(neighbor);
+                    queue.add(neighbor);
+                    parentMap.put(neighbor,curr);
+                }
+            }
+        }
+        return Collections.emptyList();
+    }
+    private List<Integer> buildPath(Map<Integer,Integer> parentMap,int startVertex,int target){
+        List<Integer> path = new ArrayList<>();
+        int curr = target;
+        while(curr != startVertex){
+            path.add(0,curr);
+            curr = parentMap.get(curr);
+        }
+        path.add(0,startVertex);
+        return path;
+    }
     public static void main(String[] args){
         BFSinGraph g = new BFSinGraph();
         g.addEdge(0, 1);
@@ -40,7 +72,15 @@ public class BFSinGraph {
         g.addEdge(4, 5);
 
         int startVertex = 2;
+        int target = 4;
         System.out.println("BFS Traversal:");
         g.BFS(startVertex);
+        System.out.println("Path:");
+        List<Integer> path = g.findPath(startVertex,target);
+        if(path.isEmpty()){
+            System.out.println("No path found");
+        }else {
+            System.out.println(path);
+        }
     }
 }

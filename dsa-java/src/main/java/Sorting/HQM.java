@@ -42,17 +42,17 @@ import java.util.Arrays;
           System.out.println(Arrays.toString(array));
     }
 }*/
-
+/*
 ///quick sort ->
-/*public class HQM {
+public class HQM {
     public void sort(int[] array){
         QS(array,0,array.length-1);
     }
     private void QS(int[] array,int low, int high){
         if(low < high){
             int pivotIndex = partition(array,low,high);
-            QS(array,low,pivotIndex-1);
-            QS(array,pivotIndex+1,high);
+            QS(array,low,pivotIndex-1);//i = -1 and j = 0
+            QS(array,pivotIndex+1,high);//i = pivotIndex and j = pivotIndex + 1
         }
     }
     private int partition(int[] array,int low,int high){
@@ -78,6 +78,7 @@ import java.util.Arrays;
         System.out.println(Arrays.toString(array));
     }
 }*/
+
 public class HQM{
     public void sort(int[] array){
         if(array == null || array.length <= 1){

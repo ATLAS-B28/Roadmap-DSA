@@ -1,4 +1,10 @@
 package tree;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
+
 class Node3{
     int data;
     Node3 left;
@@ -107,6 +113,35 @@ public class DFSinTree {
         }
         return minVal;
     }
+    public static List<Integer> findElement(Node3 root,int target){
+        if(root== null){
+            return null;
+        }
+        Stack<Node3> nodeStack = new Stack<>();
+        nodeStack.push(root);
+        Stack<List<Integer>> pathStack = new Stack<>();
+        pathStack.push(Collections.singletonList(root.data));
+        while(!nodeStack.isEmpty()){
+            Node3 current = nodeStack.pop();
+            List<Integer> currentPath = pathStack.pop();
+            if(current.data == target){
+                return currentPath;
+            }
+            if(current.right != null){
+                List<Integer> rightPath = new ArrayList<>(currentPath);
+                rightPath.add(current.right.data);
+                nodeStack.push(current.right);
+                pathStack.push(rightPath);
+            }
+            if(current.left != null){
+                List<Integer> leftPath = new ArrayList<>(currentPath);
+                leftPath.add(current.left.data);
+                nodeStack.push(current.left);
+                pathStack.push(leftPath);
+            }
+        }
+        return null;
+    }
 
     public static void main(String[] args){
         DFSinTree tree = new DFSinTree();
@@ -130,6 +165,17 @@ public class DFSinTree {
         tree.printPreOderDFS();
         System.out.println("New DFS Postorder");
         tree.printPostOrderDFS();
+        int target = 18;
+        List<Integer> path = DFSinTree.findElement(tree.root,target);
+        if(path!=null){
+            System.out.println("Path from root to "+target);
+            for(int i = 0;i < path.size();i++){
+                System.out.print(path.get(i)+" ");
+                if(i < path.size()-1){
+                    System.out.println("->");
+                }
+            }
+        }
     }
 }
 
