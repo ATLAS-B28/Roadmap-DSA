@@ -10,9 +10,10 @@ Data Structure -
 Updates for the Algorithms- 
 1. Backtracking
 2. Greedy Algorithms
-3. More Graph Algorithms
+3. More Graph and Tree Algorithms
 4. String and sub-string search algorithms
-5. More cache
+5. Coding Interview Patterns
+6. Some leetcode questions 
 ## Why GO?
 GO language started out as an internal language at GOOGLE for their server code and now is rapidly gaining ground in the industry. GO has very simple syntax but 
 has a very C/C++-like execution speed and can do concurrency and garbage collection. Therefore, learning DSA concepts in GO is very helpful.
