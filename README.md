@@ -3,6 +3,7 @@ All the core concepts regarding Data Structures and algorithms and Interview Que
 ## Why Java?
 Java is a write-once-run-anywhere language, it is a statically typed compiled language used in all the major systems and applications.
 Many companies all across the industry therefore require Java and that's why the DSA concepts in Java are very crucial.
+For basics of Java - https://github.com/ATLAS-B28/java-tut.
 
 Data Structure -
 1. Most of the data structures implemented
