@@ -1,6 +1,6 @@
 package tree;
 import java.util.*;
-
+//implement bfs traversal to find a particular element
 class Node4{
     int data;
     Node4 left;

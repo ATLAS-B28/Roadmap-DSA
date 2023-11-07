@@ -13,7 +13,7 @@ class ListNode{
 public class Doubly{
     private ListNode head;
     private ListNode tail;
-    private Map<Integer, ListNode> map;
+    private final Map<Integer, ListNode> map;
     public Doubly(){
          head = null;
          tail = null;

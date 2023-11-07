@@ -1,5 +1,5 @@
 package queue;
-/*
+
 //array implementation
 public class QueueExample {
     private final int[] queue;
@@ -28,11 +28,10 @@ public class QueueExample {
         front = (front + 1) % queue.length;
         size--;
     }
-    public int peek(){
+    public void peek(){
         if(isEmpty()){
             throw new IllegalStateException("Queue is empty");
         }
-        return queue[front];
     }
     public boolean isEmpty(){
         return size == 0;
@@ -64,7 +63,8 @@ public class QueueExample {
         queue.peek();
     }
 }
-*/
+
+/*
 //linked list implementation
 class Node{
     int data;
@@ -146,3 +146,4 @@ public class QueueExample {
         queue.peek();
     }
 }
+*/

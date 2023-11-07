@@ -37,7 +37,7 @@ public class ArrayHash {
         }else{
             //collopse
             int newIndex = (index+1)%size;
-            while(table[newIndex] != null && newIndex != index){
+            while(newIndex != index && table[newIndex] != null ){
                 newIndex = (newIndex+1)%size;
             }
             if(table[newIndex] == null){
