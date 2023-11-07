@@ -1,5 +1,4 @@
 package array;
-import java.util.*;
 public class LeetcodeMatrix {
     public int countBattleShips(char[][] board) {
         int m = board.length;
