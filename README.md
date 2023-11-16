@@ -1,5 +1,5 @@
 # Roadmap-DSA - 
-All the core concepts regarding Data Structures and algorithms and Interview Questions are actively added from various sources in Java, C, C++ and Go language.
+All the core concepts regarding Data Structures and algorithms and Interview Questions are actively added from various sources in Java, C, C++, Typescript and Go language.
 ## Why Java?
 Java is a write-once-run-anywhere language, it is a statically typed compiled language used in all the major systems and applications.
 Many companies all across the industry therefore require Java and that's why the DSA concepts in Java are very crucial.
@@ -21,3 +21,7 @@ has a very C/C++-like execution speed and can do concurrency and garbage collect
 
 ## Why C/C++ ?
 C/C++ languages are used since a long time and will teach us to manage memory and concurrency.
+
+## Why Typescript ? 
+Typescript is build upon Javascript and adds type system to it. 
+The Kata-Machine library is from ThePrimegean and not mine and will be used for his course on DSA.
