@@ -1,6 +1,6 @@
 package hashtable;
 import java.util.*;
-
+//this is hash map and uses chaining to handle collision
 public class Hash2 {
     private final Map<Integer, List<Integer>> map;
     public Hash2(){

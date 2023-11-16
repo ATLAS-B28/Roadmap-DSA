@@ -1,4 +1,4 @@
-package array_string.StringOps;
+package array_string;
 
 public class SubString {
     //sub string search algorithms

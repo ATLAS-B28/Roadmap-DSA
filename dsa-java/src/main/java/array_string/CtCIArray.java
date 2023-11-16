@@ -1,6 +1,7 @@
 package array_string;
 
 public class CtCIArray {
+    //Q1 - check whether all the characters are unique in a given string
     /*public static boolean isUniqueChar(String str){
         if(str.length() > 128){
             return false;

@@ -1,6 +1,6 @@
 package queue;
 
-//array implementation
+//array_string implementation
 public class QueueExample {
     private final int[] queue;
     private int front;

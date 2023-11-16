@@ -1,6 +1,6 @@
 package stack;
 
-// this is array implementation
+// this is array_string implementation
 /*
 class Stack {
     private final int size;
@@ -8,7 +8,7 @@ class Stack {
     private int top;
     public Stack(int size){
         this.size = size;
-        this.stackArray = new int[size];//new array of size n and type int
+        this.stackArray = new int[size];//new array_string of size n and type int
         this.top = -1;//indicates no elements
     }
     public void push(int data){

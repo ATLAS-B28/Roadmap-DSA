@@ -11,26 +11,26 @@ public class BSI {
         int n = array.length;
         /*for(int i=0; i< n-1; i++){
             for(int j=0; j < n-i-1 ; j++){
-                if(array[j] > array[j+1]){
-                    int temp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = temp;
+                if(array_string[j] > array_string[j+1]){
+                    int temp = array_string[j];
+                    array_string[j] = array_string[j+1];
+                    array_string[j+1] = temp;
                 }
             }
         }
         /*
         //selection sort
         for(int i=0; i<n-1; i++){//it is boundary between unsorted and sorted
-            int minIndex = i;//min. index in unsorted part of array
+            int minIndex = i;//min. index in unsorted part of array_string
             for(int j=i+1; j<n; j++){//searches from i+1 to n i.e. the unsorted portion
-                if(array[j] < array[minIndex]){
+                if(array_string[j] < array_string[minIndex]){
                     minIndex = j;//if jth < small then current minIndex
                     //update the minIndex to jth index
                 }
             }
-            int temp = array[minIndex];//new value of minIndex
-            array[minIndex] = array[i];//update the value of minIndex with ith element
-            array[i] = temp;//then set the actual min. value of ith element to
+            int temp = array_string[minIndex];//new value of minIndex
+            array_string[minIndex] = array_string[i];//update the value of minIndex with ith element
+            array_string[i] = temp;//then set the actual min. value of ith element to
                             // the start of the sorted
         }*/
 

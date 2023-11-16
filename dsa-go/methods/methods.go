@@ -12,11 +12,15 @@ type Rect struct {
 	width, height int
 }
 
-func (r *Rect) area() int {
+func (r *Rect) area() int { //area method is defined with a receiver of type pointer to *Rect
+	//cause method receives the memory address of the struct
+	//any changes made are reflected in the struct
 	return r.width * r.height
+	//operates directly on the struct
 }
 
-func (r Rect) perim() int {
+func (r Rect) perim() int { //perim method is defined with a receiver of type Rect
+	//it works on the copy and not the struct itself
 	return 2*r.width + 2*r.height
 }
 

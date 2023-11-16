@@ -2,6 +2,7 @@
 package hashtable;
 import java.util.ArrayList;
 import java.util.List;
+//this is hashmap and uses separate chaining to handle collision
 public class Hash {
     private final int size;
     private final List<KV2>[] table;

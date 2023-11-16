@@ -63,7 +63,7 @@ func main() {
 	for k, v := range e {
 		fmt.Println(k, " -> ", v)
 	}
-	// define an order using a new array and then append it as
+	// define an order using a new array_string and then append it as
 	var f []string
 	f = append(f, "one", "two", "three") //<- append it this way
 	for _, element := range f {          //then iterate over it
@@ -97,9 +97,9 @@ fmt.Println("Hello World")*/
 		arr1 := [...]string{1: "Aditya", 2: "Abhijeet"}
 		fmt.Println(arr1)
 	///slices
-	//array to slice
+	//array_string to slice
 	var myarray = [...]int{1, 2, 3, 4, 5}
-	var slice = myarray[1:4] //<- slice made form array
+	var slice = myarray[1:4] //<- slice made form array_string
 	fmt.Println(slice)
 	fmt.Printf("Length = %d\n", len(slice))   //no.of elements in slice
 	fmt.Printf("Capacity = %d\n", cap(slice)) //no.of elements in slice can grow or shrink to

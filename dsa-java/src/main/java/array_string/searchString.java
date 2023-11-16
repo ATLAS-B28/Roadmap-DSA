@@ -1,4 +1,4 @@
-package array_string.StringOps;
+package array_string;
 import java.util.regex.*;
 public class searchString {
     //pattern searching in text
