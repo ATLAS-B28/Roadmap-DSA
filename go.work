@@ -1,6 +1,8 @@
-go 1.21.0
+go 1.21.4
 
 use (
+	./dsa-go/BST
+	./dsa-go/ReverseArr
 	./dsa-go/dll
 	./dsa-go/ds1
 	./dsa-go/generics
@@ -9,4 +11,5 @@ use (
 	./dsa-go/methods
 	./dsa-go/pointer
 	./dsa-go/queue
+	./dsa-go/stack
 )
