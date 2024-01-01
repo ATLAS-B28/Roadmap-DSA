@@ -3,13 +3,19 @@ go 1.21.4
 use (
 	./dsa-go/BST
 	./dsa-go/ReverseArr
+	./dsa-go/concurrency
 	./dsa-go/dll
 	./dsa-go/ds1
+	./dsa-go/file
 	./dsa-go/generics
 	./dsa-go/interface
+	./dsa-go/ioInGo
 	./dsa-go/linked
 	./dsa-go/methods
+	./dsa-go/palindromePermutation
 	./dsa-go/pointer
 	./dsa-go/queue
 	./dsa-go/stack
+	./dsa-go/stringRotate
+	./dsa-go/templ
 )
