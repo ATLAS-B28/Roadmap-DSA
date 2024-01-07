@@ -2,6 +2,8 @@ go 1.21.4
 
 use (
 	./dsa-go/BST
+	./dsa-go/Kruskal
+	./dsa-go/Prim
 	./dsa-go/ReverseArr
 	./dsa-go/concurrency
 	./dsa-go/dll
