@@ -1,10 +1,19 @@
 go 1.21.4
 
 use (
+	./dsa-go/BFS
 	./dsa-go/BST
+	./dsa-go/BellmanFord
+	./dsa-go/Cache
+	./dsa-go/DFS
+	./dsa-go/HPath
+	./dsa-go/KMP
+	./dsa-go/KTP
 	./dsa-go/Kruskal
 	./dsa-go/Prim
+	./dsa-go/RK
 	./dsa-go/ReverseArr
+	./dsa-go/Sorting
 	./dsa-go/concurrency
 	./dsa-go/dll
 	./dsa-go/ds1
