@@ -150,7 +150,7 @@ function heapify(arr, n, i) {
     }
 
     if(largest !== i) {
-        swap(arr ,i, largest);
+        swap(arr , i, largest);
         heapify(arr, n, largest);
     }
 }
