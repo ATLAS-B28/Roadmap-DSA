@@ -2,6 +2,12 @@ package array_string;
 
 import java.util.Arrays;
 public class CtCIPermutations {
+    /**
+     *
+     * Check Permutation: Given two strings,
+     * write a method to decide if one is a permutation of the
+     * other
+     */
     public static String sort(String str){
         char[] charArr = str.toCharArray();
         Arrays.sort(charArr);

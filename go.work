@@ -10,9 +10,11 @@ use (
 	./dsa-go/KMP
 	./dsa-go/KTP
 	./dsa-go/Kruskal
+	./dsa-go/Maze
 	./dsa-go/Prim
 	./dsa-go/RK
 	./dsa-go/ReverseArr
+	./dsa-go/Searching
 	./dsa-go/Sorting
 	./dsa-go/concurrency
 	./dsa-go/dll

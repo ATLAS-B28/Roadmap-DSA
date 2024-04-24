@@ -5,80 +5,95 @@ import (
 	"fmt"
 )
 
+//using prority queue
+
 type Edge struct {
-	u, v, w int
+	Weight int
+	Start  int
+	End    int
 }
 
-type Graph struct {
-	n     int
-	edges []Edge
-	adj   [][]Edge
+type PriorityQueue []*Edge
+
+func (pq PriorityQueue) Len() int { return len(pq) }
+
+func (pq PriorityQueue) Less(i, j int) bool {
+	return pq[i].Weight < pq[j].Weight
 }
 
-func (g *Graph) addEdge(u, v, w int) {
-	g.adj[u] = append(g.adj[u], Edge{u, v, w})
-	g.adj[v] = append(g.adj[v], Edge{v, u, w})
-	g.edges = append(g.edges, Edge{u, v, w})
+func (pq PriorityQueue) Swap(i, j int) {
+	pq[i], pq[j] = pq[j], pq[i]
 }
 
-type EdgeHeap []Edge
-
-// Len implements heap.Interface.
-func (h EdgeHeap) Len() int {
-	return len(h)
+func (pq *PriorityQueue) Push(x interface{}) {
+	item := x.(*Edge)
+	*pq = append(*pq, item)
 }
 
-func (h EdgeHeap) Less(i, j int) bool {
-	return h[i].w < h[j].w
-}
-func (h EdgeHeap) Swap(i, j int) {
-	h[i], h[j] = h[j], h[i]
-}
-
-func (h *EdgeHeap) Push(x interface{}) {
-	*h = append(*h, x.(Edge))
-}
-func (h *EdgeHeap) Pop() interface{} {
-	old := *h
+func (pq *PriorityQueue) Pop() interface{} {
+	old := *pq
 	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
+	item := old[n-1]
+	*pq = old[0 : n-1]
+	return item
 }
+func Prim(graph [][]int) int {
+	numVertices := len(graph)
+	parent := make([]int, numVertices)
+	key := make([]int, numVertices)
+	mst := make([]bool, numVertices)
 
-func (g *Graph) prim() int {
-	visited := make([]bool, g.n)
-	h := &EdgeHeap{}
-	heap.Push(h, Edge{-1, 0, 0})
-	minWeight := 0
-	for h.Len() > 0 {
-		e := heap.Pop(h).(Edge)
-		if visited[e.v] {
+	pq := make(PriorityQueue, 0)
+	heap.Init(&pq)
+
+	for i := 0; i < numVertices; i++ {
+		key[i] = 1<<31 - 1
+		/*
+			This expression shifts the binary representation
+			of the number 1 to the left by 31 bits, and then
+			subtracts 1. The result is 2147483647, which is
+			the maximum value for a 32-bit signed integer.
+		*/
+		mst[i] = false
+	}
+
+	key[0] = 0
+	heap.Push(&pq, &Edge{Weight: 0, Start: 0, End: 0})
+
+	for pq.Len() > 0 {
+		u := heap.Pop(&pq).(*Edge).End
+
+		if mst[u] {
 			continue
 		}
-		visited[e.v] = true
-		minWeight += e.w
-		for _, edge := range g.adj[e.v] {
-			if !visited[edge.v] {
-				heap.Push(h, edge)
+		mst[u] = true
+
+		for v := 0; v < numVertices; v++ {
+			if graph[u][v] != 0 && !mst[v] && graph[u][v] < key[v] {
+				parent[u] = v
+				key[v] = graph[u][v]
+				heap.Push(&pq, &Edge{Weight: graph[u][v], Start: u, End: v})
 			}
 		}
 	}
-	return minWeight
+
+	minWt := 0
+	for i := 1; i < numVertices; i++ {
+		minWt += graph[parent[i]][i]
+	}
+
+	return minWt
 }
 
 func main() {
-	g := &Graph{n: 5, adj: make([][]Edge, 0)}
+	graph := [][]int{
+		{0, 2, 0, 6, 0},
+		{2, 0, 3, 8, 5},
+		{0, 3, 0, 0, 7},
+		{6, 8, 0, 0, 9},
+		{0, 5, 7, 9, 0},
+	}
 
-	g.addEdge(0, 1, 2)
-	g.addEdge(0, 3, 6)
-	g.addEdge(1, 2, 3)
-	g.addEdge(1, 3, 8)
-	g.addEdge(1, 4, 5)
-	g.addEdge(2, 4, 7)
-	g.addEdge(3, 4, 9)
-
-	minWeight := g.prim()
-
-	fmt.Println("Minimum weight:", minWeight)
+	minWt := Prim(graph)
+	fmt.Println("Minimum Spanning Tree: ", minWt)
 }
