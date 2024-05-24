@@ -24,3 +24,10 @@ C/C++ languages have been used for a long time and will teach us to manage memor
 ## Why Typescript? 
 Typescript is built upon Javascript and adds a type system to it. 
 The Kata-Machine library is from ThePrimegean and not mine and will be used for his course on DSA.
+
+## Why Python?
+Python language is versatile and has easy to understand syntax.
+
+## Languages Used - 
+
+[![My Skills](https://skillicons.dev/icons?i=java,go,c,cpp,ts,js,python)](https://skillicons.dev)
