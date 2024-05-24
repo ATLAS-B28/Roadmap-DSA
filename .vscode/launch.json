@@ -1,8 +1,13 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
-
+        {
+            "type": "java",
+            "name": "heap2pown",
+            "request": "launch",
+            "mainClass": "heap.heap2pown",
+            "projectName": "dsa-java"
+        },
         {
             "name": "(gdb) Bash on Windows Attach",
             "type": "cppdbg",
@@ -12,7 +17,9 @@
             "pipeTransport": {
                 "debuggerPath": "/usr/bin/gdb",
                 "pipeProgram": "${env:windir}\\system32\\bash.exe",
-                "pipeArgs": ["-c"],
+                "pipeArgs": [
+                    "-c"
+                ],
                 "pipeCwd": ""
             },
             "setupCommands": [

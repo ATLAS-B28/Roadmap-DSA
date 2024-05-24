@@ -4,15 +4,15 @@ import java.util.*;
 
 class Solution{
     public int[] intersection(int[] num1,int[] num2){
-        HashSet<Integer> set1  =new HashSet<>();
+        HashSet<Integer> set1 = new HashSet<>();
         HashSet<Integer> set2 = new HashSet<>();
-        for(int n : num1){
+        for(int n : num1) {
             set1.add(n);
         }
         for(int n : num2){
             //we want intersection
-            //i.e. common elements from both the arrays
-            if(set1.contains(n)){
+            //i.e., common elements from both the arrays
+            if(set1.contains(n)) {
                 set2.add(n);
             }
         }

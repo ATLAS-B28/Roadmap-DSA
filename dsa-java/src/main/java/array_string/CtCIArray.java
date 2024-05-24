@@ -28,15 +28,15 @@ public class CtCIArray {
         for(int i = 0; i < str.length(); i++){
             int val = str.charAt(i)-'a';//the ascii value of ith character - ascii value of 'a'
             //maps the characters from 0-25
-            if((checker & (1 << val)) > 0 ) return false;
+            if(((checker) & (1 << val)) > 0) return false;
             //check if corresponding bit for that character is set ot checker
             //if so return false
             //here the comparison is with a bitwise AND operator
             //we shift 1 -> 00000001 to no. of positions defined in val
-            //towards left and create a bitmask
-            //example: val = 3, then 1 is shifted by 3 positions and goes to 4th bit
-            //therefore new number is 00001000
-            checker |= (1 << val);//if not then the bit for character is set in checker using
+            //towards the left and create a bitmask
+            //example: val = 3, then 1 is shifted by 3 positions and goes to 4th bit,
+            //therefore, the new number is 00001000
+            checker |= (1 << val);//if not, then the bit for character is set in a checker using
             //bitwise |= operator
             //here we set the value of checker to 1 essentially
         }

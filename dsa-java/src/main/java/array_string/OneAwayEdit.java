@@ -12,20 +12,20 @@ public class OneAwayEdit {
         int index1 = 0;
         int index2 = 0;
         boolean foundDiff = false;
-        while(index1 < shorter.length() && index2 < longer.length() ){
+        while(index1 < shorter.length() && index2 < longer.length()){
 
             if(shorter.charAt(index1) != longer.charAt(index2)){
 
-                if(foundDiff) return false;//ensure first difference found
+                if(foundDiff) return false;//ensure the first difference found
 
                 foundDiff = true;
 
                 if(shorter.length() == longer.length()){
-                    index1++;//replacement then move shorter pointer by 1
+                    index1++;//replacement then move a shorter pointer by 1
                 }
 
             }else{
-                index1++;//if match then move shorter pointer by 1
+                index1++;//if match then move a shorter pointer by 1
             }
             index2++;//always move the longer pointer
         }
