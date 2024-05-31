@@ -1,0 +1,108 @@
+{
+    "version": "1.4.0",
+    "project": {
+        "name": "dsa-java",
+        "directory": "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java",
+        "workspaceDir": "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java",
+        "sources": [
+            "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java\\src\\main\\java"
+        ],
+        "dependencies": [
+            
+        ],
+        "classpath": [
+            "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java\\target\\classes"
+        ],
+        "out": "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java\\target",
+        "classesDir": "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java\\target\\classes",
+        "resources": [
+            "C:\\Users\\abhij\\OneDrive\\Desktop\\PrepV2\\dsa-java\\src\\main\\resources"
+        ],
+        "java": {
+            "options": [
+                "-g",
+                "-target",
+                "17",
+                "-source",
+                "17",
+                "-encoding",
+                "UTF-8"
+            ]
+        },
+        "test": {
+            "frameworks": [
+                {
+                    "names": [
+                        "com.novocode.junit.JUnitFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalatest.tools.Framework",
+                        "org.scalatest.tools.ScalaTestFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.scalacheck.ScalaCheckFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "org.specs.runner.SpecsFramework",
+                        "org.specs2.runner.Specs2Framework",
+                        "org.specs2.runner.SpecsFramework"
+                    ]
+                },
+                {
+                    "names": [
+                        "utest.runner.Framework"
+                    ]
+                },
+                {
+                    "names": [
+                        "munit.Framework"
+                    ]
+                }
+            ],
+            "options": {
+                "excludes": [
+                    
+                ],
+                "arguments": [
+                    {
+                        "args": [
+                            "-v",
+                            "-a"
+                        ],
+                        "framework": {
+                            "names": [
+                                "com.novocode.junit.JUnitFramework"
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        "platform": {
+            "name": "jvm",
+            "config": {
+                "home": "C:\\Program Files\\Java\\jdk-21",
+                "options": [
+                    
+                ]
+            },
+            "mainClass": [
+                
+            ]
+        },
+        "resolution": {
+            "modules": [
+                
+            ]
+        },
+        "tags": [
+            "library"
+        ]
+    }
+}
