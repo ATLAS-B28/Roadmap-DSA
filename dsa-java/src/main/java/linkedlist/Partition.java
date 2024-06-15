@@ -15,13 +15,18 @@ public class Partition {
         ListNode2 smallerTail = smallerHead;
         ListNode2 greaterHead = new ListNode2(0);
         ListNode2 greaterTail = greaterHead;
+        ListNode2 equalHead = new ListNode2(0);
+        ListNode2 equalTail = equalHead;
         ListNode2 curr = head;
 
-        while(curr != null){
-            if(curr.val < x){
+        while(curr != null) {
+            if (curr.val < x) {
                 //appending smaller values to smaller list
                 smallerTail.next = curr;
                 smallerTail = smallerTail.next;
+            }else if(curr.val == x){
+                equalHead.next = curr;
+                equalTail = equalTail.next;
             }else{
                 //appending greater/equal values to greater list
                 greaterTail.next = curr;
@@ -31,7 +36,8 @@ public class Partition {
         }
         //combining the smaller and greater lists
         greaterTail.next = null;
-        smallerTail.next = greaterHead.next;
+        equalTail.next = greaterHead.next;
+        smallerTail.next = equalHead.next;
         //returning the head of the new partitioned list
         return smallerHead.next;
     }
