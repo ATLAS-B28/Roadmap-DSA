@@ -19,7 +19,7 @@ public class StringRotate {
     public static void main(String[] args) {
         String[][] pairs = {
             {"apple","pleap"},
-            {"carrot","tarroc"},
+            {"carrot","ctaror"},
             {"cat","act"},
         };
         for(String[] pair : pairs){

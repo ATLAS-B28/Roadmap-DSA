@@ -10,7 +10,7 @@ class Common{
         int a = Character.getNumericValue('a');
         int z = Character.getNumericValue('z');
 
-        int val = Character.getNumericValue('c');
+        int val = Character.getNumericValue(c);
         if(a <= val && val <= z){
             return val - a;
         }
@@ -37,9 +37,12 @@ public class Palindrome_permutation {
         int mask = 1 << index;
         if((bitVector & mask)==0){
             bitVector |= mask;//set to 1
+            System.out.println("In if loop "+bitVector);
         }else{
             bitVector &= ~mask;//set to 0
+            System.out.println("In else loop "+bitVector);
         }
+        System.out.println("final bitvector is:"+ bitVector);
         return bitVector;
     }
     /*
@@ -50,12 +53,13 @@ public class Palindrome_permutation {
         for(char c: phrase.toCharArray()){
             int x = Common.getCharNumber(c);
             bitVector = toggle(bitVector,x);
+            System.out.println("After toggle"+bitVector);
         }
         return bitVector;
     }
     /*
-    * Check if least one is set to 1 by subtracting one from the integer
-    * and ANDing with original integer
+    * Check at least one is set to 1 by subtracting one from the integer
+    * and ANDing with the original integer
     * */
     public static boolean checkAtMostOneBitSet(int bitVector){
         return (bitVector & (bitVector - 1)) == 0;
@@ -63,6 +67,7 @@ public class Palindrome_permutation {
 
     public static boolean isPalindromePermutation(String phrase){
         int bitVector = createBitVector(phrase);
+        System.out.println("The created bit vector: "+ bitVector);
         return checkAtMostOneBitSet(bitVector);
     }
     public static void main(String[] args){

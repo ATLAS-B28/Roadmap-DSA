@@ -22,15 +22,17 @@ class KruskalAlgo{
         edges.add(edge);
     }
     int find(int[] parent,int i){
-        if(parent[i] == i){
-            return i;
-        }
+        if(parent[i] == i){ //if current element is parent (i th's value == i)
+            return i;//i <- current element is parent
+        }//if not then di recursive call
         return find(parent,parent[i]);
     }
     void union(int[] parent,int x,int y){
         int xRoot = find(parent,x);
         int yRoot = find(parent,y);
-        parent[yRoot] = xRoot;
+        System.out.println(xRoot + " " + yRoot);
+        parent[yRoot] = xRoot;//yRoot's th index value is xRoot value
+        System.out.println(parent[yRoot] + " " + xRoot);
     }
     void kruskalMST(){
         ArrayList<Edge> result = new ArrayList<>();
