@@ -9,33 +9,41 @@ public class BSI {
         //bubble sort
         int[] array = {5,2,8,1,9,7,3,4,6};
         int n = array.length;
-        /*for(int i=0; i< n-1; i++){
-            for(int j=0; j < n-i-1 ; j++){
-                if(array_string[j] > array_string[j+1]){
-                    int temp = array_string[j];
-                    array_string[j] = array_string[j+1];
-                    array_string[j+1] = temp;
+        /*for(int i = 0; i < n - 1; i++) {//outer loop from 0 to n-1
+            for(int j = 0; j < n-i-1; j++) {//inner loop the no.of iterations decrease as outer goes on increasing
+                //as the size of unsorted goes on reducing, and it will go from 0 to n-1-i here -1-i is
+                //added and subtracted from the length giving the current length of unsorted part
+                if(array[j] > array[j+1]) {//here see if the succeeding element in the unsorted part aka j+1
+                    //if(array[j]<array[j+1]) this is only change needed for descending bubble sort
+                    //is > current j if so swap them if not just move on
+                    int temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
                 }
             }
-        }
-        /*
-        //selection sort
-        for(int i=0; i<n-1; i++){//it is boundary between unsorted and sorted
-            int minIndex = i;//min. index in unsorted part of array_string
-            for(int j=i+1; j<n; j++){//searches from i+1 to n i.e. the unsorted portion
-                if(array_string[j] < array_string[minIndex]){
-                    minIndex = j;//if jth < small then current minIndex
-                    //update the minIndex to jth index
-                }
-            }
-            int temp = array_string[minIndex];//new value of minIndex
-            array_string[minIndex] = array_string[i];//update the value of minIndex with ith element
-            array_string[i] = temp;//then set the actual min. value of ith element to
-                            // the start of the sorted
         }*/
 
+        //selection sort
+        for(int i = 0; i < n - 1; i++) {//the 0  to n - 1 loop
+            int minIdx = i;//set the current i as min. index we consider this ith element as minimum
+            for(int j = i + 1; j < n; j++) {//then from i+1 to n we see if jth element is < the minIdx if so then jth is
+                //reassigned to minIdx as the new one, and we go on looking for the smallest element in unsorted part from i+1 to end
+                if(array[j] < array[minIdx]) {
+                    //to get descending part just use array[j] > array[j+1] that's it
+                    minIdx = j;
+                }
+            }
+            //after that we have temp to minIdx from previous for loop
+            int temp = array[minIdx];//and do swap with the current i if any
+            array[minIdx] = array[i];
+            array[i] = temp;
+            // current i th element considered as minIdx, i+1 to n if any element is < minIdx then new minIdx is that otherwise go to next one up to n
+            //after coming out of the unsorted part's iteration loop with the min element from it we swap i which naturally bigger than it with that min element
+            //effectively placing the i(<minIdx from unsorted part) in its correct position
+        }
+
         //insertion sort
-        for(int i=1; i<n; i++){//starts from 2nd element to last and is unsorted portion
+        /*for(int i=1; i<n; i++){//starts from 2nd element to last and is unsorted portion
             int key = array[i];//the key element is ith element and
             //will be inserted in the sorted portion
             int j = i-1;//one position behind i ,and it is last of sorted portion
@@ -48,7 +56,7 @@ public class BSI {
             }
             array[j+1] = key;//if j = -1 or j is not < key then key is inserted at j+1
             //which is its correct position
-        }
+        }*/
         System.out.println(Arrays.toString(array));
     }
 }
