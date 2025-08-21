@@ -22,7 +22,7 @@
  * 3) Static Items and Constants
  */
 
-fn main() {
+/*fn main() {
     let log: bool = true;
     let a_float: f64 = 1.09;
     let an_int = 58i32; //suffix annotation
@@ -35,7 +35,7 @@ fn main() {
     //mutable variable
     let mut mutable = 12;
     mutable = 43;//here it is mutable i32
-    mutable = true;//but here its bool which will give error
+   // mutable = true;//but here its bool which will give error
     //we can overwrite with shadowing
     let mutable = true; //shadowing the previous mutable
 
@@ -64,4 +64,26 @@ fn main() {
     println!("Type of my_arr: {}", std::any::type_name::<[i32; 5]>());
     println!("Type of my_tuple: {}", std::any::type_name::<(u32, u8, bool, f32)>());
     
+}*/
+/*
+Literals and operators -  
+*/
+fn main() {
+    println!("1 + 2 = {}", 1u32 + 2);
+    println!("1 - 2 = {}", 1i32 - 2);
+    //scientific notation
+    println!("1e4 is {}, -2.5e-3 is {}", 1e4, -2.5e-3);
+    //short circuting boolean logic
+    println!("true AND false is {}", true && false);
+    println!("true OR false is {}", true || false);
+    println!("Not true is {}", !true);
+    //bitwise operations
+    println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
+    println!("0011 OR 0101is {:04b}", 0b0011u32 | 0b0101);
+    println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101);
+    println!("1 << 5 is {}", 1u32 << 5);
+    println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
+
+    //using underscores to improve readability
+    println!("One million is written as {}", 1_000_000u32);
 }
