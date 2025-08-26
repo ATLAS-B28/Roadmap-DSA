@@ -231,7 +231,7 @@ while i < iterations:
     else:
         print("Cube of ", num, " is ", (math.pow(num, 3)))
     i+=1
-'''
+
 #accept yes or no from user and then take a number and see if its even or odd
 choice = input("Do you want to continue? (yes/no): ").lower()
 while choice == 'yes':
@@ -277,3 +277,151 @@ while i <= n:
     print(a, end=", " if i < n-1 else "\n")
     a, b = b, a + b
     i+=1
+#accept a number and find out its factorial of it
+num = int(input("Enter a number: "))
+fact = 1
+for i in range(1, num + 1):
+    fact *= i
+print("Factorial of", num, "is", fact)
+#while loop version
+i = 1
+while i <= num:
+    fact *= i
+    i += 1
+print("Factorial of", num, "is", fact)
+#accept a number and find out no.of digits
+num = int(input("Enter a number: "))
+count = 0
+for i in str(num):
+    count += 1
+print("Number of digits in", num, "is", count)
+#while loop version
+count = 0
+temp = num
+while temp > 0:
+    temp //= 10 #//= means floor division
+    count += 1
+print("Number of digits in", num, "is", count)
+'''
+#accept a number and see if its prime or not
+'''
+num = int(input("Enter a number: "))
+if num > 1:
+    if num == 2:
+        print(num, " is Prime")
+
+    for i in range(2, num):
+        if num % i == 0 and num!=0: 
+            print(num, " is Composite")
+            break
+        else:
+            print(num, " is Prime")   
+            break    
+else:
+    print("Less then or equal to 1, (1,0,-ve numbers not allowed)")
+#with flag
+if num > 1:
+    flag = True
+    for i in range(2, num):
+        if num % i == 0 and num != i:
+            flag=False
+            break
+        else:
+            flag=True
+    print(num, "Prime" if flag else "Composite")
+'''
+'''
+#while loop version
+i = 2#start from 2
+flag = True
+if num > 1:
+    while i < num:
+        if num % i == 0:
+            flag = False
+        else:
+            flag = True
+        i+=1
+    print("Prime" if flag else "Not Prime")
+else:
+    print("Not Prime")'''
+#get all the prime numbers between one and 100
+''''
+for num in range(1, 101):
+    if num > 1:
+        flag=True
+        for i in range(2, num):
+            if num%i==0 and num!=i:
+                flag=False
+                break
+            else:
+                flag=True
+    else:
+        flag=False
+    print(num, " is Prime" if flag else " is Not Prime")
+#while loop version
+'''
+'''
+num = 1
+while num <= 100:
+    if num > 1:
+        while i < num:
+            if num%i==0 and num!=i:
+                flag=False
+                break
+            else:
+                flag=True
+            i+=1
+    else:
+        flag=False
+    if flag:
+        print(num, end=", " if num < 100 else "\n")
+    else:
+        print("Not prime")'''
+'''
+for i in range(6):
+    for j in range(3):
+        print(j,i)
+1
+22
+333
+4444
+pattern using nested for loop
+
+num = int(input("Enter number for a right angled triangle: "))
+for i in range(1,num+1):
+    for j in range(1,i+1):
+        print(i, end="")
+    print()
+
+for a pattern
+    1
+   22
+  333
+  and so on using nested for loop
+
+num = int(input("Enter number for a reversed right angled triangle: "))
+for i in range(1,num+1):
+    print(" " * (num-i)+str(i)*i)
+        
+for i in range(1,11):
+    #i*1, i*2 and so on 
+    print("table of", i)
+    for j in range(1,11):
+        print(f"{i}x{j}={i*j}", sep="\n", end="\t")
+    print()'''
+#find the sum of all digits of entered number
+num = int(input("Enter the number: "))
+sum = 0
+for i in str(num):
+    sum += int(i)
+print("Sum for",num,"is",sum)
+#find the largest and smallest number from a list of numbers
+li = [2,34,56,77,8,1,9]
+largest = li[0]
+smallest = li[0]
+for i in range(len(li)):
+    if i < len(li) and li[i] > largest:
+        largest = li[i]
+    elif i < len(li) and li[i] < smallest:
+        smallest = li[i]
+print("Largest is",largest,"Smallest is",smallest)
