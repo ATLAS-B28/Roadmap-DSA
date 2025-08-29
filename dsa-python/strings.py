@@ -79,7 +79,7 @@ No need of function just simple set of if's and for loops and
 using the string inbuilt functions to perform operations 
 '''
 print("\t\tMenu Driven Assignment")
-s = input("Enter a String: ")
+s = ""
 print("1. Split string into words while removing punctuation marks")
 print("2. Join the words back into a sentence with a custom separator ('|')")
 print("3. Partition the string based on 1st occurance of user inputted word")
@@ -90,36 +90,53 @@ print("7. Count a Specific Character in a String")
 print("8. Exit")
 ch = int(input("Enter your choice: "))
 if ch == 1:
-    #to remove all punctuation marks we need a list of all of them, 
+    s = input("Enter a String with punctuation '-' : ")
+    '''
+    to remove all punctuation marks we need a list of all of them, 
     punctuation_marks = [',', '.', ':', ';', '!', '?', '"', "'", '(', ')', '[', ']', '{', '}', '-', '_', '+', '=', '*', '/', '%', '^', '&', '$', '#', '@', '~', '`', '|', '\\', '<', '>', ' ']
+ 
     for mark in punctuation_marks:
         s = s.replace(mark, ' ')
-        #print(s)
-    words = s.split()
+    '''
+    #if checks for non - symbols
+    for cha in s:
+        if not cha.isalnum() and cha != '-':
+            s = s.replace(cha, ' ')
+    if len(s) == 0:
+        print("No words in the string, please input a proper string with '-'")
+        exit(0)
+    #now we can split the string into words
+    words = s.split('-')
     print("Words in the string are:")
     print(words)
 elif ch == 2:
+    s = input("Enter a String: ")
+    if len(s) == 0:
+        print("No words in the string, please input a proper string")
+        exit(0)
     #we have split it and rejoin while adding the separator
-    #how to deal with special characters like , ! etc?
     word = s.split()
     join_words = '|'.join(word)
     print("Joined string with '|' separator is:")
     print(join_words)
 elif ch == 3:
+    s = input("Enter a String: ")
+
     word_partition = input("Enter a word to separate the sentence:")
-    before, sep, after = s.partition(word_partition)#destructuring a tuple
-    if sep:
-        print("Before the word:", before)
-        print("Word:", sep)
-        print("After the word:", after)
+    res = s.partition(word_partition)#destructuring a tuple
+    #what if I input is This is my cat with separator as is then it will split it on This<-is But I want the is only - challenge
+    if res[1]:
+         print("Words when with", res[1], "separator:",res[0], res[2])
     else:
         print("No such word in the string")
 elif ch == 4:
+    s = input("Enter a String: ")
     words = s.split()
-    reverse_words = ' '.join(reversed(words))
+    reverse_words =' '.join(words[::-1])
     print("Reversed words order is:")
     print(reverse_words)
 elif ch == 5:
+    s = input("Enter a String: ")
     vowels = "aeiouAEIOU"
     vowels_count = 0
     consonants_count = 0
@@ -141,12 +158,14 @@ elif ch == 5:
     print("Numbers:", num_count)
     print("Special Characters:", special_count)
 elif ch == 6:
+    s = input("Enter a String: ")
     is_there = ""
     for cha in s:
         if cha not in is_there:
             is_there += cha
     print(is_there)   
-elif ch == 7:    
+elif ch == 7:  
+    s = input("Enter a String: ")  
     char_to_count = input("Enter a character to count:")
     count = 0
     for cha in s:
