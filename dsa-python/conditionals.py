@@ -410,7 +410,7 @@ for i in range(1,11):
         print(f"{i}x{j}={i*j}", sep="\n", end="\t")
     print()'''
 #find the sum of all digits of entered number
-num = int(input("Enter the number: "))
+'''num = int(input("Enter the number: "))
 sum = 0
 for i in str(num):
     sum += int(i)
@@ -424,4 +424,45 @@ for i in range(len(li)):
         largest = li[i]
     elif i < len(li) and li[i] < smallest:
         smallest = li[i]
-print("Largest is",largest,"Smallest is",smallest)
+print("Largest is",largest,"Smallest is",smallest)'''
+'''
+54321
+5432
+543
+54
+5
+
+num = int(input("Enter a number for pattern: "))
+for i in range(num, 0, -1):
+    for j in range(num, num - i, -1):
+        print(j,end="")
+    print()
+
+1234
+123
+12
+1
+
+num = int(input("Enter a number for pattern: "))
+for i in range(num , 0, -1):
+    for j in range(1, i + 1):
+        print(j,end="")
+    print()
+
+        *
+       ***
+      *****
+     *******
+    *********
+     *******
+      *****
+       ***
+        *
+
+num = int(input("Enter a number for pattern:"))
+for i in range(1, num + 1):
+    print(" " * (num - i) + "*" * (2 * i - 1))
+for i in range(num - 1, -1, -1):
+    print(" " * (num - i) + "*" * (2 * i - 1))
+#with nested loops
+num = int(input("Enter a number for pattern:"))'''
