@@ -94,6 +94,10 @@ for key, value in sales.items():
 region = input("Enter the region to display data (NORTH, SOUTH, EAST, WEST): ").upper()
 if region in regions:
    print(f"Sales Person Data for {region} Region:-")
-   print(regions[region])
+   #formatting the print
+   for key, value in regions[region].items():
+       if key == 'Sales Person Region':
+           continue
+       print(f"{key}: {value}\t", end="")
 else:
    print("Region not found please enter proper region name.")
