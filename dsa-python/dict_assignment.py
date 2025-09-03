@@ -77,19 +77,20 @@ for key, value in inverted.items():
     print(f"{key}: {value} | ", end="\n")
 
 Merge two dictionaries as input and merge them, if common key found add their values instead of replacing
-
-print("Merging 2 user defined dictionaries: ")
-length = int(input("Enter the length of the dict to be merged: "))
+'''
+print("Merging 2 user defined dictionaries for a list of Cars and their Unit Numbers: ")
+length = int(input("Enter the length of the dict 1 to be merged: "))
 dict1 = {}
 dict2 = {}
 for i in range(1, length + 1):
-    key = input(f"Enter key {i} for dict 1: ")
-    value = int(input(f"Enter value {i} for dict 1: "))
-    dict1[key] = value
-for i in range(1, length + 1):
-    key = input(f"Enter key {i} for dict 2: ")
-    value = int(input(f"Enter value {i} for dict 2: "))
-    dict2[key] = value
+    car = input(f"Enter car name {i}: ").upper().replace(" ","")
+    unit = int(input(f"Enter unit: "))
+    dict1[car] = unit
+length1 = int(input("Enter the length of the dict 2 to be merged: "))
+for i in range(1, length1 + 1):
+    car = input(f"Enter car {i}: ").upper().replace(" ", "")
+    unit = int(input(f"Enter unit: "))
+    dict2[car] = unit
 #merging logic 
 merged = dict1.copy() #copy dict1 to merged
 for key, value in dict2.items():
@@ -97,13 +98,15 @@ for key, value in dict2.items():
         merged[key] += value #add values if key exists, aka this is same 
     else:
         merged[key] = value #add key-value pair if key doesn't exist aka unique not repeated
-print("Merged Dict:-")
+print()
+print("Merged Dict for Cars:-")
 for key, value in merged.items():
     print(f"{key}: {value} | ", end="\n")
-    '''
+    
 '''
 User defined nested dictionaries where each student has 3 subjects with their marks
 structure - {key - Stuent Name type string: value type dict: {Subject1 type string: marks type integer,....}}
+'''
 '''
 student_entry={}
 n = int(input("Enter number of students to be added: "))
@@ -130,13 +133,14 @@ for key, value in student_entry.items():
     print(f"Average marks of {key} is {avg}")
 #find topper in each subject
 '''
+'''
 let top marks be -1 and student as "" and 
 for key, value from student entry
-then get the subject key from i - 1 to 3
+then get the subject key from i - 1 to 3aassss
 if value from sub key is not none and sub key > top marks 
-then set top marks to subkey's value and key is student name
+then set top marks to subkey's value and key AAAA student name
 in the end enter the sub key as key for topper list as this is topper -> subject 1 -> student name
-'''
+
 toppers = {}
 for i in range(1, 4):
     top_marks = -1
@@ -150,4 +154,27 @@ for i in range(1, 4):
     toppers[f"Subject {i}"] = {top_student: top_marks}
 print("Toppers in each subject:-")
 for key, value in toppers.items():
-    print(f"{key}: {value} | ", end="\n")
+    print(f"{key}: {value} | ", end="\n")'''
+#if 2 keys have same value have only one key-value pair
+#separate program to take a country and its capital
+#2 dictionary
+'''
+countries1 = {}
+countries2 = {}
+n = int(input("Enter number of countries to be added: "))
+for i in range(1, n + 1):
+    country = input(f"Enter name of country {i}: ")
+    capital = input(f"Enter capital of country {i}: ")
+    countries1[country] = capital
+for i in range(1, n + 1):
+    country = input(f"Enter name of country {i}: ")
+    capital = input(f"Enter capital of country {i}: ")
+    countries2[country] = capital
+#merge logic
+merged = countries1.copy()
+for key, value in countries2.items():
+    if value not in merged.values():
+        merged[key] = value
+print("Merged Countries Dict:-")
+for key, value in merged.items():
+    print(f"{key}: {value} | ", end="\n")'''
