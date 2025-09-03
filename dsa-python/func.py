@@ -69,10 +69,99 @@ def even_odd_check(n):
 even_odd_check(n)
 '''
 #factorial of a number
-n=int(input("Enter a number to find factorial: "))
+
+#n=int(input("Enter a number to find factorial: "))
+#def factorial(n):
+#    fact = 1
+#    for i in range(1, n + 1):
+#        fact *= i
+#    return fact
+#print(f"Factorial of {n} is {factorial(n)}")
+'''
+     * 2 arrays, one defined by user and other predefined
+     * 1st array defined in main and
+     * 2nd array defined in main and prompted for user to input data
+     * 1) Take input from user and store in 2nd array
+     * 2) Search an element in 1st array and print the index
+     * 3) Reverse contents of the 2nd array
+     * 4) Sum of factorial of single digit positive numbers from 2nd array
+     * if none print -1
+
+#function to add to 2nd array
+def new_func(size):
+    arr2 = [] 
+    for i in range(size):
+        n = int(input("Enter a number: "))
+        arr2.append(n)
+    return arr2
+#search an element in 1st array and print the index
+def searching(arr1, search_item):
+        for i in range(len(arr1)):
+            if arr1[i] == search_item:
+                print(f"Element {search_item} found at index {i}")
+#reversing using 
+def reverse(arr2):
+        print("Reversed Array 2: ")
+        for i in range(len(arr2) - 1, -1, -1):
+            print(arr2[i], end=" ")   
+#Sum of factorial of single digit positive numbers from 2nd array
+def fact_single_positive(arr2):
+        sum = 0   
+        for i in range(len(arr2)):
+            if arr2[i] < 10 and arr2[i] > 0:
+                sum += factorial(arr2[i])
+        if sum > 0:
+            print(f"\nSum of factorial of single digit positive numbers is: {sum}")
+        else:
+            print(-1)
+#Helper function
 def factorial(n):
-    fact = 1
-    for i in range(1, n + 1):
-        fact *= i
-    return fact
-print(f"Factorial of {n} is {factorial(n)}")
+            fact = 1
+            for i in range(1,n+1):
+                fact *= i
+            return fact 
+
+
+def main():
+    arr1 = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+    size = int(input("Enter size of array 2: "))
+    arr2 = new_func(size)
+    print("Array 1 ",arr1)
+    print("Array 2 ",arr2)
+    search_term = int(input("Enter a number to search: "))
+    searching(arr1, search_term)
+    reverse(arr2)
+    fact_single_positive(arr2)
+
+
+main()'''
+#armstrong number
+'''n=int(input("Enter a number to check if it is armstrong or not: "))
+def armstrong(n):
+    sum = 0
+    nLen = len(str(n))
+    temp = n
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** nLen
+        temp // 10
+    if n == sum:
+        print(f"{n} is an armstrong number")
+        print(f"Sum of factorial of single digit positive numbers is: {sum}")
+    else:
+        print(-1)
+
+armstrong(n)'''
+def palindrome(n):
+    temp = n
+    rev = 0
+    while temp > 0:
+        digit = temp % 10
+        rev = (rev*10) + digit
+        temp = temp // 10
+    if n == rev:
+        print(f"{n} is a palindrome")
+    else:
+        print(f"{n} is not a palindrome")
+num = int(input("Enter a number to check if it is palindrome or not: "))
+palindrome(num)
