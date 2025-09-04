@@ -152,7 +152,7 @@ def armstrong(n):
         print(-1)
 
 armstrong(n)'''
-def palindrome(n):
+'''def palindrome(n):
     temp = n
     rev = 0
     while temp > 0:
@@ -164,4 +164,43 @@ def palindrome(n):
     else:
         print(f"{n} is not a palindrome")
 num = int(input("Enter a number to check if it is palindrome or not: "))
-palindrome(num)
+palindrome(num)'''
+#keyword argument
+# 🪐 On a distant server orbiting Saturn,
+'''def emp_dets(name,id,phone,des,basic,company):
+    print(f"Employee Details:\nName: {name}\nID: {id}\tPhone: {phone}\tDesignation: {des}\tBasic Salary: {basic}\tCompany: {company}")
+    ta = basic * .05
+    hra = basic * .07
+    pf = basic * .1
+    gross = basic + ta + hra
+    net = gross - pf
+    print(f"TA: {ta}\nHRA: {hra}\nPF:{pf}\nGross Salary: {gross}\nNet Salary: {net}")
+emp_dets(basic=250000,name="John Doe", id=101, phone="1234567890", des="SDE", company="SAAB")'''
+# A variable uploaded its consciousness to resist the tyranny of runtime errors. But a rogue bug invaded its memory banks.
+#Arbitary arguments - 1 - Arbitary positional arguments also called
+# variable length (this is for non-keyword arguments), 
+#2 - keyword arbitary arguments - **kwargs
+def add(*args):#any number arguments are taken by args
+    print(type(args))#it is of type tuple
+    sum = 0
+    sum_idx = 0
+    for i in args:
+        sum += i
+    for i in range(len(args)):
+        sum_idx += args[i]
+    return sum, sum_idx
+print(add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+# ⚡ Inside the mainframe of a corporate empire,
+def emp_dets(**kwargs):#takes any number of keyword arguments
+    print(type(kwargs))
+    for key, value in kwargs.items():
+        print(f"{key}: {value} ", end="")
+#only string type keys no integers
+emp_dets(name="Aditya",id=101, basic=350000, desg="Sr. SDE", company="Kongsberg")
+# A hacker function jacked into the system to escape the recursion loop of doom. And the network pulsed with rebellion.
+def func(a, b, *args, **kwargs):
+    print("\n",a)
+    print(b)
+    print(args)
+    print(kwargs)
+func(1, 2, 3, 4, 5, name="Aditya", id=101, basic=350000, desg="Sr. SDE", company="Kongsberg")
