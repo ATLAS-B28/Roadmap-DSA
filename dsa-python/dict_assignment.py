@@ -4,7 +4,7 @@ create a dict of employees whcih stores ID, Name, Dept, Basic Salary of 5 employ
 2) Accept department name from user and return the count of employees of that department and their details
 3) Return another dict that stores the details of employees whose basic is greater than 10000
 '''
-'''
+
 employees = {}
 n = 5
 print("Enter details of 5 employees to be added to the database:-")
@@ -51,7 +51,6 @@ for key, value in employees.items():
 print("Employees with Basic Salary > 10000:-")
 for key, value in exec.items():
     print(f"{key}: {value} | ", end="\n")
-'''
 
 '''
 A program to invert dict (key to value and value to key) and return the dict
@@ -78,6 +77,7 @@ for key, value in inverted.items():
 
 Merge two dictionaries as input and merge them, if common key found add their values instead of replacing
 '''
+'''
 print("Merging 2 user defined dictionaries for a list of Cars and their Unit Numbers: ")
 length = int(input("Enter the length of the dict 1 to be merged: "))
 dict1 = {}
@@ -103,11 +103,10 @@ print("Merged Dict for Cars:-")
 for key, value in merged.items():
     print(f"{key}: {value} | ", end="\n")
     
-'''
+
 User defined nested dictionaries where each student has 3 subjects with their marks
 structure - {key - Stuent Name type string: value type dict: {Subject1 type string: marks type integer,....}}
-'''
-'''
+
 student_entry={}
 n = int(input("Enter number of students to be added: "))
 #create a student name dict and add elements in an inner dict
@@ -132,8 +131,7 @@ for key, value in student_entry.items():
     avg = total // 3
     print(f"Average marks of {key} is {avg}")
 #find topper in each subject
-'''
-'''
+
 let top marks be -1 and student as "" and 
 for key, value from student entry
 then get the subject key from i - 1 to 3aassss

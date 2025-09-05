@@ -180,17 +180,18 @@ emp_dets(basic=250000,name="John Doe", id=101, phone="1234567890", des="SDE", co
 #Arbitary arguments - 1 - Arbitary positional arguments also called
 # variable length (this is for non-keyword arguments), 
 #2 - keyword arbitary arguments - **kwargs
-def add(*args):#any number arguments are taken by args
-    print(type(args))#it is of type tuple
-    sum = 0
-    sum_idx = 0
-    for i in args:
-        sum += i
-    for i in range(len(args)):
-        sum_idx += args[i]
-    return sum, sum_idx
-print(add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
+#def add(*args):#any number arguments are taken by args
+#    print(type(args))#it is of type tuple
+#    sum = 0
+#    sum_idx = 0
+#    for i in args:
+#        sum += i
+#    for i in range(len(args)):
+#        sum_idx += args[i]
+#    return sum, sum_idx
+#print(add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
 # ⚡ Inside the mainframe of a corporate empire,
+'''
 def emp_dets(**kwargs):#takes any number of keyword arguments
     print(type(kwargs))
     for key, value in kwargs.items():
@@ -203,4 +204,51 @@ def func(a, b, *args, **kwargs):
     print(b)
     print(args)
     print(kwargs)
-func(1, 2, 3, 4, 5, name="Aditya", id=101, basic=350000, desg="Sr. SDE", company="Kongsberg")
+func(1, 2, 3, 4, 5, name="Aditya", id=101, basic=350000, desg="Sr. SDE", company="Kongsberg")'''
+#scope - of variable, function is localized based on its initilization and usage
+#some are global and others local to a loop to a function or file
+#nested function is good sample to show scoping
+'''
+global_var = 100
+global_var2 = 200
+def emp_data(name,id,desg,basic,company):
+    local = 20
+    
+    print(f"{name}\t{id}\n{basic}\t{desg}\t{company}")
+    global global_var
+    global global_var2
+    print(global_var)
+    print(global_var+100)#here only the addition happens 
+    global_var2 = global_var2 + 100 #but here we delcared the global_var as global and
+    #and used in an expression it changes completely
+    print(global_var2)
+    def net(income):
+        nonlocal local always used in nested functions  
+        ta = income * .05
+        hra = income * .07
+        pf = income * .1
+        gross = income + ta + hra
+        net = gross - pf
+        return net, local
+    print(net(basic))
+    print(local)#accessible here too as local is declared nonlocal
+emp_data("Aditya",101,"Sr. SDE",2500000,"Samtel")
+print(global_var)#doesnot update the value here
+print(global_var2)#updates the value here'''
+#partitioning string function based on the word's 1st occurance
+# a proper function not the inbuilt ones
+s = "Python is easy to learn and this is a work shop"
+def partition_func(s, sep):
+    before = ""
+    after = ""
+    found = False
+    for i in range(len(s)):
+       if s[i:i+len(sep)] == sep and not found:#ith word to element before i+len(sep) 
+           before = s[:i]
+           after = s[i+len(sep):] 
+           found = True
+    if found:
+        return before, sep, after
+    else:
+        return s, "", ""
+print(partition_func(s,'is'))
