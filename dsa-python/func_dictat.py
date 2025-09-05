@@ -14,6 +14,7 @@ def create_acc():
     balance = float(input("Enter initial balance: "))
     acc_type = input("Enter account type (Savings/Current): ")
     holder_name = input("Enter account holder's name: ")
+    print()
     if account_no in users:
         print("Account already exists.")
         return
@@ -32,16 +33,18 @@ def create_acc():
 def desposit_func(amount, account_no):
     if account_no in users:
         if str(amount).startswith('-'):
+            print()
             print("Invalid amount. Please enter a positive value.")
             return
         users[account_no]['balance'] += amount
         print(f"Deposited {amount}. New balance is {users[account_no]['balance']}")
     else:
         print("Account not found.")
-        
+
 def withdraw_func(amount, account_no):
     if account_no in users:
         if users[account_no]['balance'] >= amount and not str(amount).startswith('-'):
+            print()
             users[account_no]['balance'] -= amount
             print(f"Withdrawn {amount}. New balance is {users[account_no]['balance']}")
         else:
@@ -51,6 +54,7 @@ def withdraw_func(amount, account_no):
 
 def display_by_number(account_no):
     if account_no in users:
+        print()
         print(f"Account Number: {account_no}")
         for key, value in users[account_no].items():
             print(f"{key.capitalize()}: {value}")
@@ -60,6 +64,7 @@ def display_by_number(account_no):
 def display_all():
     if users:
         for account_no, details in users.items():
+            print()
             print(f"\nAccount Number: {account_no}")
             for key, value in details.items():
                 print(f"{key.capitalize()}: {value}")
@@ -85,6 +90,7 @@ def main():
         print("5. Display All Account Details")
         print("6. Display Balance by Account Number")
         print("7. Exit")
+        print()
         choice = int(input("Enter your choice (1-7): "))
         
         if choice == 1:
