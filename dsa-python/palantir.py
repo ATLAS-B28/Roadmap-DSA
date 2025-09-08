@@ -29,7 +29,9 @@ def employee_management():
             break
         yes_no = input("Do you want to continue the operation?")
         if yes_no == 'yes':
+            print()
             continue
         else:
+            print()
             break
 employee_management()
