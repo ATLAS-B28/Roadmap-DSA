@@ -35,16 +35,20 @@ after that reverse the 3rd list
 '''
 
 def create_list():
-    n = int(input("Enter the size of the array 1: "))
+    '''n = int(input("Enter the size of the array 1: "))
     list = []
     for i in range(n):
         ele = int(input("Enter element: "))
         list.append(ele)
-    return list
+    return list'''
+    n = int(input("Enter the size of the array: "))
+    return [int(input("Enter element: ")) for _ in range(n)]
+    #here _ is a throwaway variable, as we don't have to operate on it
 
 def merge_list(list1, list2):
-    list3 = list1 + list2
-    return list3
+    '''"""list3 = list1 + list2
+    return list3"""'''
+    return [*list1, *list2]#unpacking the lists 
 
 def reverse_list(list3):
     #using slicing to reverse the list
