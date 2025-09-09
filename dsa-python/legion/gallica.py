@@ -11,3 +11,7 @@ shape_dict = {
     'rectangle': ret_area,
     'circle': circle_area
 }
+def diameter(radius):
+    return 2 * radius
+def circumference(radius):
+    return 2 * 3.14 * radius
