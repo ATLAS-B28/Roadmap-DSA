@@ -129,9 +129,7 @@ for i in employees:
 print("The highest salary is:",max_sal[2])
 '''
 '''
-#sets - unordered and no repeatation
-my_set_nums = {1,2,3,4,5}
-print(my_set_nums)
+
 
 #dictionaries - key - value -  duplicate key can overwrite the original 
 #key is allowed, values can be duplicate without overwrite as they have separate unique key
@@ -228,6 +226,7 @@ for k, v in word_count_from_list.items():
 #print(word_count)
 #a user inputted nested dict where dict={key:{}..} and print the it
 #unpacking dict using **
+'''
 dict1 = {"a": 1, "b": 2}
 dict2 = {"c": 3, "d": 4}
 merged_dict = {**dict1, **dict2}
@@ -259,4 +258,19 @@ for emp_id, emp_info in employees.items():
      #    continue
      #   else:
      #       print(f"{key}: {value}, ")
-    print()
+    print()'''
+
+#sets - unordered and no repeatation
+my_set_nums = {1,2,3,4,5}
+print(my_set_nums)
+#difference
+print(my_set_nums.difference({3,4,5,6,7,8}))
+#difference_update
+set1 = {1,2,3,4,5}
+set2 = {3,4,5,6,7}
+set1.difference_update(set2)
+print(set1)
+#intersection
+set3 = {"Aditya","Abhijeet","Kakashi"}
+set4 = {"Aditya","Abhijeet","Naruto"}
+print(set3.intersection(set4))
