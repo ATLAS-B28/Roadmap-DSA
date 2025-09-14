@@ -273,4 +273,23 @@ print(set1)
 #intersection
 set3 = {"Aditya","Abhijeet","Kakashi"}
 set4 = {"Aditya","Abhijeet","Naruto"}
-print(set3.intersection(set4))
+set5 = set3.intersection(set4)
+print(set5)#set3.intersection_update(set4))
+set6 = set1.copy()
+set7 = {1,2,8,9,10,11,12} 
+set8 = {1,2}
+print(set8.issubset(set7))
+print(set7.issuperset(set8))
+ele = set7.pop()
+print(ele)
+set7.remove(9)
+print(set7)
+set9 = {21,22,23,24,25,26}
+set10 = {21,27,28,29,30}
+set11 = set9.symmetric_difference(set10)#common element removed
+print(set11)
+set9.symmetric_difference_update(set10)
+print(set9)
+set12 = {'a','b','c','d'}
+set12.update([2,3,4])
+print(set12)

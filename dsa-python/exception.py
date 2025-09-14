@@ -1,4 +1,4 @@
-# 🌲 In the ancient lands of Syntaxia, a brave function emerged.
+
 #error at compile time and is dealt with removing the errors
 #Types of error - 
 #1. Syntax error - compile time error, detected by interpreter
@@ -18,7 +18,26 @@
 #4. try except else finally, complete structure
 #We can handle different exceptions together or separately with except blocks or use 
 #global exception class
-# A function wielded the staff of recursion to fetch treasures hidden in distant realms. And thus the prophecy of code lived on.
+'''
+Programming Errors
+├── Compile-Time Errors
+│   ├── Syntax Errors
+│   ├── Semantic Errors
+│   └── Type Errors (in statically typed languages)
+│
+└── Runtime Errors
+    ├── Logic Errors (wrong output)
+    ├── System Errors (memory, file access)
+    └── Exceptions (catchable runtime errors)
+        ├── Built-in Exceptions
+        │   ├── ValueError
+        │   ├── TypeError  
+        │   ├── IndexError
+        │   ├── KeyError
+        │   ├── ZeroDivisionError
+        │   └── FileNotFoundError
+        └── Custom Exceptions
+'''
 '''try:
     # code that may raise an exception
     x = 10 / 0  # This will raise a ZeroDivisionError
@@ -51,7 +70,7 @@ else:
     print("No exceptions occurred, area calculated successfully.")
 
 #a try except where we use finally and identify and  handle multiple exceptions
-# 😂 So there was this function, right?
+
 try:
     num1 = int(input("Enter a number: "))
     num2 = int(input("Enter another number: "))
@@ -65,7 +84,6 @@ except Exception as e:
     print(f"Caught an unexpected error: {e}")
 finally:
     print("Execution of the try-except block is complete.")
-# A loop just wouldn’t stop dancing to join arrays with laughter. And the repo burst into giggles.
 try:
     arr1 = [1, 2, 3]
     arr2 = [4, 5, 6]
