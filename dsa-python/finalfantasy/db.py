@@ -7,16 +7,27 @@
 #this a python-mysql based CRUD REST API application
 #finally a main 
 import mysql.connector
+import time
 
 def get_by_id(id):
     connection, cursor = con_cursor()
     try:
         query = "SELECT * FROM characters WHERE id = %s"
+        start_time = time.time()
         cursor.execute(query, (id,))
         res = cursor.fetchone()
-        print("ID\tName\tStats\tFavorites\tSpecial Attack\tApperances")
-        print("----------------------------------------------------------")
-        print(f"{res[0]}\t{res[1]}\t{res[2]}\t{res[3]}\t{res[5]}\t{res[4]}")
+        end_time = time.time()
+        execution_time = end_time - start_time
+        if res:
+            print("+----+---------------+-------+---------------+------------------+------------+")
+            print("| id | name          | stats | favorites     | special_attacks  | apperances |")
+            print("+----+---------------+-------+---------------+------------------+------------+")
+            for row in res:
+                print(f"| {row[0]:<2} | {row[1]:<13} | {row[2]:<5} | {row[3]:<13} | {row[4]:<16} | {row[5]:<10} |")
+            print("+----+---------------+-------+---------------+------------------+------------+")
+            print(f"{len(res)} rows in set {execution_time} sec")
+        else:
+            print(f"Empty set {execution_time} sec")
        # connection.commit()
     except Exception as e:
         print(f"{e}")
@@ -32,14 +43,22 @@ def get_all():
 Cursor = The conversation/commands you send through that line
     '''
         query = "SELECT * FROM characters"
+        start_time = time.time()
         cursor.execute(query)
-        print(type(cursor))
         res = cursor.fetchall()
-        print(type(res))
-        print("ID\tName\tStats\tFavorites\tSpecial Attack\tApperances")
-        print("----------------------------------------------------------")
-        for row in res:
-            print(f"{row[0]}\t{row[1]}\t{row[2]}\t{row[3]}\t{row[5]}\t{row[4]}")
+        end_time = time.time()
+        execution_time = end_time - start_time
+        
+        if res:
+            print("+----+---------------+-------+---------------+------------------+------------+")
+            print("| id | name          | stats | favorites     | special_attacks  | apperances |")
+            print("+----+---------------+-------+---------------+------------------+------------+")
+            for row in res:
+             print(f"| {row[0]:<2} | {row[1]:<13} | {row[2]:<5} | {row[3]:<13} | {row[4]:<16} | {row[5]:<10} |")
+            print("+----+---------------+-------+---------------+------------------+------------+")
+            print(f"Query in {execution_time} sec")
+        else:
+            print(f"Empty set {execution_time} sec")
     except Exception as e:
         print(f"{e}")
     finally:
@@ -52,9 +71,12 @@ def create_character(name, stats, favorites, special_attacks, apperances):
         query = "INSERT INTO characters (name, stats, favorites, special_attacks, apperances) VALUES (%s, %s, %s, %s, %s)"
         #%s is just a placeholder in the SQL    
         data = name, stats, favorites, special_attacks, apperances
+        start_time = time.time()
         cursor.execute(query, data) 
         connection.commit()
-        print("Character created successfully!")
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Character created successfully in {execution_time} sec")
     except Exception as e:
         print(f"{e}")
     finally:
@@ -66,9 +88,12 @@ def update_character(id, name, stats, favorites, special_attacks, apperances):
     connection, cursor = con_cursor()
     try:
         query = "UPDATE characters SET name=%s, stats=%s, favorites=%s, special_attacks=%s, apperances=%s where id=%s"
+        start_time = time.time()
         cursor.execute(query, (name, stats, favorites, special_attacks, apperances, id))
         connection.commit()
-        print("Character updated successfully!")
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Character updated successfully in {execution_time} sec")
     except Exception as e:
         print(f"{e}")
     finally:
@@ -79,9 +104,12 @@ def delete_character(id):
     connection, cursor = con_cursor()
     try: 
         query = "DELETE FROM characters WHERE id = %s"
+        start_time = time.time()
         cursor.execute(query, (id,))
         connection.commit()
-        print("Character deleted successfully!")
+        end_time = time.time()
+        execution_time = end_time - start_time
+        print(f"Character deleted successfully in {execution_time} sec")
     except Exception as e:
         print(f"{e}")
     finally:
